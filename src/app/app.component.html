@@ -5,16 +5,25 @@
   <form class="form" (ngSubmit)="onFormSubmitted()" #registrationForm="ngForm">
     <div class="column">
       <div class="input-box">
-        <input type="text" placeholder="First Name" name="firstname"ngModel/>
+        <input type="text" placeholder="First Name" name="firstname"[(ngModel)]='firstName' required #fname="ngModel"/>
+        <small *ngIf="fname.invalid && fname.touched">*First Name is a required field</small>
+        <span *ngIf="firstName">You entered: {{firstName}}</span>
       </div> 
 
       <div class="input-box">
-        <input type="text" placeholder="Last Name" name="lastname" ngModel/>
+        <input type="text" placeholder="Last Name" name="lastname" [(ngModel)]="lastName" required #lname="ngModel"/>
+                <small *ngIf="lname.invalid && lname.touched">*Last Name is a required field</small>
+                <span *ngIf="lastName">You entered: {{lastName}}</span>
+
       </div>
     </div>    
 
     <div class="input-box">
-      <input type="text" placeholder="Email" name="email"ngModel/>
+      <input type="text" placeholder="Email" name="email"[(ngModel)]='emailAddress' required email #email="ngModel"/>
+              <small *ngIf="email.invalid && email.touched">*Email is a required field</small>
+                      <span *ngIf="emailAddress">You entered: {{emailAddress}}</span>
+
+
     </div>
 
     <div class="column">
@@ -64,6 +73,6 @@
         <input type="number" placeholder="Postal code" name="postal" ngModel/>
       </div>
     </div>
-    <input type="submit" value="Submit" class="submit-btn"> 
+    <input type="submit" value="Submit" class="submit-btn" [disabled]="!registrationForm.valid"> 
   </form>
 </section>
