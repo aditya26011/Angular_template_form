@@ -63,22 +63,29 @@ export class AppComponent {
 
       username+=username.toLowerCase();
       console.log(username);
-      this.form.setValue({
-      firstname:this.form.value.firstname,
-      lastname:this.form.value.lastname,
-      email:this.form.value.email,
-      phonenumber:this.form.value.phonenumber,
-      dateofbirth:this.form.value.dateofbirth,
-      username:username,
-        gender:this.form.value.gender,
-        address:{
-          street2:this.form.value.address.street2,
-          street1:this.form.value.address.street1,
-          country:this.form.value.address.country,
-          city:this.form.value.address.city,
-          region:this.form.value.address.region,
-          postal:this.form.value.address.postal
 
+      // this.form.setValue({
+      // firstname:this.form.value.firstname,
+      // lastname:this.form.value.lastname,
+      // email:this.form.value.email,
+      // phonenumber:this.form.value.phonenumber,
+      // dateofbirth:this.form.value.dateofbirth,
+      // username:username,
+      //   gender:this.form.value.gender,
+      //   address:{
+      //     street2:this.form.value.address.street2,
+      //     street1:this.form.value.address.street1,
+      //     country:this.form.value.address.country,
+      //     city:this.form.value.address.city,
+      //     region:this.form.value.address.region,
+      //     postal:this.form.value.address.postal
+
+      //   }
+      // })
+      this.form.form.patchValue({
+        username:username,
+        address:{
+          country:'Japan'
         }
       })
   }
