@@ -41,6 +41,14 @@ export class AppComponent {
     console.log(this.form.value.email);
     console.log(this.form.value.address.city)
         console.log(this.form.value.address.country)
+
+        this.form.reset();
+        this.form.form.patchValue({
+          gender:'Male',
+          address:{
+            country:'India'
+          }
+        })
   }
 
   createUsername(){
@@ -61,7 +69,7 @@ export class AppComponent {
     let dateTime=new Date(this.dob);
       username+=dateTime.getFullYear();
 
-      username+=username.toLowerCase();
+      username=username.toLowerCase();
       console.log(username);
 
       // this.form.setValue({
@@ -84,9 +92,9 @@ export class AppComponent {
       // })
       this.form.form.patchValue({
         username:username,
-        address:{
-          country:'Japan'
-        }
+        // address:{
+        //   country:'Japan'
+        // }
       })
   }
   
