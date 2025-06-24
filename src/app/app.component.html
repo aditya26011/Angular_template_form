@@ -5,13 +5,13 @@
   <form class="form" (ngSubmit)="onFormSubmitted()" #registrationForm="ngForm">
     <div class="column">
       <div class="input-box">
-        <input type="text" placeholder="First Name" name="firstname"[(ngModel)]='firstName' required #fname="ngModel"/>
+        <input type="text" placeholder="First Name" name="firstname" ngModel required #fname="ngModel" />
         <small *ngIf="fname.invalid && fname.touched">*First Name is a required field</small>
         <span *ngIf="firstName">You entered: {{firstName}}</span>
       </div> 
 
       <div class="input-box">
-        <input type="text" placeholder="Last Name" name="lastname" [(ngModel)]="lastName" required #lname="ngModel"/>
+        <input type="text" placeholder="Last Name" name="lastname" ngModel  required #lname="ngModel" />
                 <small *ngIf="lname.invalid && lname.touched">*Last Name is a required field</small>
                 <span *ngIf="lastName">You entered: {{lastName}}</span>
 
@@ -82,4 +82,27 @@
     <small *ngIf="addr.invalid && addr.touched">*Some of the input fields doesn't contain valid values</small>
     <input type="submit" value="Submit" class="submit-btn" [disabled]="!registrationForm.valid"> 
   </form>
+</section>
+
+<section class="user-detail-container">
+  <div class="user-details-container">
+    <div class="user-avatar">
+      <p>{{firstName.slice(0, 1).toUpperCase()}}{{lastName.slice(0, 1).toUpperCase()}}</p>
+    </div>
+    <div class="user-details">
+      <div class="user-name">
+        <h2>{{ firstName }} {{ lastName }}</h2>
+      </div>
+      <p><b>Email:</b> {{ emailAddress}}</p>
+      <p><b>Username:</b> {{ userName }} </p>
+      <p><b>Date of birth:</b> {{ dob }}</p>
+      <div class="user-name">
+        <h3>Address</h3>
+      </div>
+      <span>{{country }}</span>.
+      <span>{{ city }}</span>.
+      <span>{{ region }}</span>.
+      <span> {{ postal }}</span>
+    </div>
+  </div>
 </section>

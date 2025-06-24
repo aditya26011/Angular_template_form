@@ -32,15 +32,26 @@ export class AppComponent {
   firstName:string='';
   lastName:string='';
   emailAddress:string='';
-  dob:string=''
+  dob:string='';
+  phoneNumber:string='';
+  userName:string='';
+  country:string='';
+  city:string='';
+  region:string='';
+  postal:string=''  
 
   onFormSubmitted() {
     console.log(this.form);
-    console.log(this.form.controls['firstname'].value);
-    console.log(this.form.value.lastname);
-    console.log(this.form.value.email);
-    console.log(this.form.value.address.city)
-        console.log(this.form.value.address.country)
+    this.firstName=this.form.value.firstname;
+    this.lastName=this.form.value.lastname;
+    this.emailAddress=this.form.value.email;
+    this.dob=this.form.value.dateofbirth;
+    this.userName=this.form.value.username;
+    this.country=this.form.value.address.country;
+    this.city=this.form.value.address.city;
+    this.region=this.form.value.address.region;
+    this.postal=this.form.value.address.postal;
+
 
         this.form.reset();
         this.form.form.patchValue({
