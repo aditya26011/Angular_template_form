@@ -39,7 +39,7 @@ export class AppComponent {
   city:string='';
   region:string='';
   postal:string=''  
-
+  isAgreed:boolean=false
   onFormSubmitted() {
     console.log(this.form);
     this.firstName=this.form.value.firstname;
@@ -51,9 +51,9 @@ export class AppComponent {
     this.city=this.form.value.address.city;
     this.region=this.form.value.address.region;
     this.postal=this.form.value.address.postal;
+  this.isAgreed=this.form.value.agreement
 
-
-        this.form.reset();
+//this.form.reset();
         this.form.form.patchValue({
           gender:'Male',
           address:{
